@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:myChat/screens/auth_screen.dart';
 import 'package:myChat/screens/chat_screen.dart';
+import 'package:myChat/screens/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,16 +33,18 @@ class MyApp extends StatelessWidget {
                 )),
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
-          home: StreamBuilder(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (ctx, userSnapshot) {
-              if (userSnapshot.hasData) {
-                return ChatScreen();
-              } else {
-                return AuthScreen();
-              }
-            },
-          ),
+          home: appSnapshot.connectionState == ConnectionState.waiting
+              ? SplashScreen()
+              : StreamBuilder(
+                  stream: FirebaseAuth.instance.authStateChanges(),
+                  builder: (ctx, userSnapshot) {
+                    if (userSnapshot.hasData) {
+                      return ChatScreen();
+                    } else {
+                      return AuthScreen();
+                    }
+                  },
+                ),
         );
       },
     );
