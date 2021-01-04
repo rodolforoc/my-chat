@@ -1,5 +1,5 @@
 ### My Chat
-Aplicação Mobile feita com [Flutter](https://flutter.dev/) para troca de mensagens simultâneas com o armazenamento dos dados no [Firebase](https://firebase.google.com/) e também uso de Cloud Function (Pushed Notification).
+Aplicação Mobile feita com [Flutter](https://flutter.dev/) para troca de mensagens simultâneas com o armazenamento dos dados no [Firebase](https://firebase.google.com/) e também uso de Cloud Functions (Pushed Notification).
 
 ## Tecnologias
 - [Flutter](https://flutter.dev/)
